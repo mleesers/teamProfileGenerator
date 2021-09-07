@@ -3,7 +3,7 @@ var fs = require("fs");
 var Engineer = require("./lib/Engineer");
 var Intern = require("./lib/Intern");
 var Manager = require("./lib/Manager");
-var genHTML = require("./src/genHTML");
+var generateHTML = require("./src/generateHTML");
 var teamMembers = [];
 
 const internQuestions = [
@@ -82,34 +82,35 @@ const continueQuestions = [
     message: "choose employee role",
     choices: ["engineer", "manager", "intern", "I'm done entering employees"],
   },
-  {
-    type: "confirm",
-    name: "continue",
-    message: "Do you want to continue entering employees?",
-  }
+  // {
+  //   type: "confirm",
+  //   name: "continue",
+  //   message: "Do you want to continue entering employees?",
+  // },
 ];
 
 function init() {
   inquirer.prompt(continueQuestions).then(function (answers) {
-    if (answers.continue === true) {
-        switch (answers.type) {
-            case "engineer":
-                createEngineer("engineer");
-                break;
-            case "manager":
-                createManager("manager");
-                break;
-            case "intern":
-                createIntern("intern");
-                break;
-            case "I'm done entering employees":
-                writeToHtml();
-                break;
-            default:
-                writeToHtml();
-                break;
-        }
-     }
+    // if (answers.continue === true) {
+    switch (answers.type) {
+      case "engineer":
+        createEngineer("engineer");
+        break;
+      case "manager":
+        createManager("manager");
+        break;
+      case "intern":
+        createIntern("intern");
+        break;
+      case "I'm done entering employees":
+        writeToHtml();
+        break;
+
+      default:
+        // writeToHtml();
+        break;
+    }
+    // }
   });
 }
 
@@ -156,7 +157,7 @@ function createIntern(role) {
 
 function writeToHtml() {
   console.log(teamMembers);
-  fs.writeFile("teamMembers.html", genHTML(teamMembers), (err)=>{
+  fs.writeFile("teamMembers.html", generateHTML(teamMembers), (err)=>{
     err?console.log(err): console.log("success")
   });
 }

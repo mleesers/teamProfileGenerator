@@ -1,5 +1,5 @@
 header {
-    background-color: red;
+    background-color: royalblue;
     color: white;
     height: 15vh;
     text-align: center;
@@ -11,7 +11,7 @@ header {
     display: inline-block;
     border: solid black 3px;
     border-radius: 25px;
-    background-color: royalblue;
+    background-color: rgb(46, 144, 46);
     color: white;
     margin: 2vh
 }
