@@ -1,0 +1,17 @@
+header {
+    background-color: red;
+    color: white;
+    height: 15vh;
+    text-align: center;
+    font-size: 6vh;
+    margin-bottom: 15vh;
+}
+
+.card {
+    display: inline-block;
+    border: solid black 3px;
+    border-radius: 25px;
+    background-color: royalblue;
+    color: white;
+    margin: 2vh
+}
